@@ -2,7 +2,6 @@ import itertools
 import random
 import time
 
-# توليد مصفوفة مسافات عشوائية
 def generate_distance_matrix(n, seed=42):
     random.seed(seed)
     matrix = [[0]*n for _ in range(n)]
@@ -12,7 +11,7 @@ def generate_distance_matrix(n, seed=42):
             matrix[i][j] = matrix[j][i] = dist
     return matrix
 
-# خوارزمية Held-Karp (Dynamic Programming)
+
 def tsp_dp(dist):
     n = len(dist)
     dp = {}
@@ -38,7 +37,6 @@ def tsp_dp(dist):
     return min(dp[(full_mask ^ 1, i)] + dist[i][0] for i in range(1, n))
 
 
-# القوة الغاشمة
 def tsp_brute_force(dist):
     n = len(dist)
     cities = list(range(1, n))
@@ -54,7 +52,7 @@ def tsp_brute_force(dist):
     return min_cost
 
 
-# اختبار الأداء
+
 def test():
     print("n\tDP Time\tBrute Time")
     for n in range(5, 13):
